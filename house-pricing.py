@@ -110,17 +110,6 @@ y_test_mean, y_test_lower_total, y_test_upper_total, y_test_lower_epistemic, y_t
 # Plot uncertainty by features
 plot_uncertainty_by_feature(x_test_two_features[:, 0], y_test_mean, y_test_lower_total, y_test_upper_total, y_test_lower_epistemic, y_test_upper_epistemic, xlabel=features[0], ylabel='Prix de l\'immobilier (en k€)');
 
-
-
-
-
-
-
- 
-
-
-
-
 # Compute regression metrics
 res = compute_regression_metrics(y_test, y_test_mean, y_test_lower_total, y_test_upper_total)
 res
@@ -191,11 +180,6 @@ plot_picp_by_feature(x_test_two_features[:, 0], y_test,
                      ax=axs[1,1],
                      ylims=[0.6,1.1]);
 
-
-
-
-
-
 # Create a subplot of 1 row and 2 columns with a specified figure size
 fig, axs = plt.subplots(1, 2, figsize=(15, 5))
 
@@ -252,10 +236,6 @@ plot_uncertainty_by_feature(x_test_three_features[:, 0], y_test_mean_expanded,
                             xlabel=features[0], ylabel='house price in $1000s',
                             ax=axs[0,1],
                             title="After adding education rate \nTest data: PICP={:.2f} and MPIW={:.2f}".format(res_expanded["picp"], res_expanded["mpiw"]))
-
-
-
-
 
 # Plotting PICP (Prediction Interval Coverage Probability) by feature for two features test data
 plot_picp_by_feature(x_test_two_features[:, 0], y_test,
@@ -381,11 +361,6 @@ plot_picp_by_feature(x_test_three_features[:, 0], y_test,
                      title="Données de test : PICP={:.2f} et MPIW={:.2f}"\
                      .format(res_expanded["picp"], res_expanded["mpiw"]));
 
-
-//
-
-
-
 # Re-plotting the PICP for the second feature of two-features test data, but now with the new prediction results
 plot_picp_by_feature(x_test_two_features[:, 1], y_test,
                      y_test_lower_total_new, y_test_upper_total_new,
@@ -463,5 +438,3 @@ plt.show()
 print("For 10 houses:\n")
 for i in range(10):
         print("True price: {:.2f} k€, Prediction: {:.2f} +/- {:.2f} k€, number of rooms: {:.2f}, crime rate: {:.2f}, education rate: {:.2f}"          .format(y_test[sorted_new[i]], y_test_mean_new[sorted_new[i]], 2.0 *y_epistemic_dists_new[sorted_new[i]].std(),                  x_test_full[sorted_new[i],0], x_test_full[sorted_new[i],1], x_test_full[sorted_new[i],2]))
-
-
